@@ -3,7 +3,12 @@ version: 0.2
 phases:
   pre_build:
     commands:
+      - echo PreBuilding... Insstalling Requirements
       - pip install -r requirements.txt
+  build:
+    commands:
+      - echo Build started on `date` && mvn install
+      - pytest tests  # Agregar esta línea para ejecutar las pruebas
 artifacts:
   files:
     - '**/*'
